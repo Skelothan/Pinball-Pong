@@ -37,12 +37,10 @@ public class PinballPongPaddle : MonoBehaviour
 
         if (MinigameInputHelper.IsButton1Down(playerNumber))
         {
-            // Flip left
             leftFlipper.GetComponent<PinballPongFlipper>().Flip();
         }
         if (MinigameInputHelper.IsButton1Up(playerNumber))
         {
-            // Flip left
             leftFlipper.GetComponent<PinballPongFlipper>().UnFlip();
         }
         if (MinigameInputHelper.IsButton2Down(playerNumber))
