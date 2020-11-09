@@ -11,6 +11,9 @@ public class PinballPongPaddle : MonoBehaviour
 
     public int playerNumber;
 
+    public GameObject leftFlipper;
+    public GameObject rightFlipper;
+
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -32,13 +35,23 @@ public class PinballPongPaddle : MonoBehaviour
         Vector2 v = new Vector2(joystick * MAX_VELOCITY, 0);
         rigidbody.velocity = v;
 
-        if (MinigameInputHelper.IsButton1Held(playerNumber))
+        if (MinigameInputHelper.IsButton1Down(playerNumber))
         {
             // Flip left
+            leftFlipper.GetComponent<PinballPongFlipper>().Flip();
         }
-        if (MinigameInputHelper.IsButton2Held(playerNumber))
+        if (MinigameInputHelper.IsButton1Up(playerNumber))
         {
-            // Flip right
+            // Flip left
+            leftFlipper.GetComponent<PinballPongFlipper>().UnFlip();
+        }
+        if (MinigameInputHelper.IsButton2Down(playerNumber))
+        {
+            rightFlipper.GetComponent<PinballPongFlipper>().Flip();
+        }
+        if (MinigameInputHelper.IsButton2Up(playerNumber))
+        {
+            rightFlipper.GetComponent<PinballPongFlipper>().UnFlip();
         }
     }
 }
