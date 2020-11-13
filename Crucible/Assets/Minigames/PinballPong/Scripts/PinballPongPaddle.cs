@@ -7,16 +7,22 @@ public class PinballPongPaddle : MonoBehaviour
 
     private Rigidbody2D rigidbody;
 
-    private float MAX_VELOCITY = 4;
+    private float MAX_VELOCITY = 4f;
 
     public int playerNumber;
 
     public GameObject leftFlipper;
     public GameObject rightFlipper;
 
+    public float leftBound;
+    public float rightBound;
+
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        // Don't collide with flippers
+        Physics.IgnoreLayerCollision(8, 8, true);
+        Physics.IgnoreLayerCollision(8, 9, false);
     }
 
     // Start is called before the first frame update
@@ -28,12 +34,7 @@ public class PinballPongPaddle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        // Set velocity
-        float joystick = MinigameInputHelper.GetHorizontalAxis(playerNumber);
-        Debug.Log(joystick);
-        Vector2 v = new Vector2(joystick * MAX_VELOCITY, 0);
-        rigidbody.velocity = v;
+        MovePaddle();
 
         if (MinigameInputHelper.IsButton1Down(playerNumber))
         {
@@ -51,5 +52,29 @@ public class PinballPongPaddle : MonoBehaviour
         {
             rightFlipper.GetComponent<PinballPongFlipper>().UnFlip();
         }
+
+        
+    }
+
+    void MovePaddle()
+    {
+        // Set velocity
+        float joystick = MinigameInputHelper.GetHorizontalAxis(playerNumber);
+
+        Vector2 pos = transform.position;
+        pos.x = pos.x + joystick * MAX_VELOCITY * Time.deltaTime;
+        pos.x = Mathf.Clamp(pos.x, leftBound, rightBound);
+
+
+        transform.position = pos;
+        
+
+        
+    }
+
+    // FixedUpdate is called once per physics update
+    void FixedUpdate()
+    {
+        
     }
 }

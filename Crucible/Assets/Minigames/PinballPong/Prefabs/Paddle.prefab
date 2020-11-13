@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78dd6bd57c5da438eb38ca09ed3f6bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRightFlipper: 0
   flipAngle: -35
+  isFlipped: 0
 --- !u!50 &9074676172378277023
 Rigidbody2D:
   serializedVersion: 4
@@ -156,8 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 505641925944966176}
   - component: {fileID: 505641925944966177}
-  - component: {fileID: 505641925944966183}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Paddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,27 +194,8 @@ MonoBehaviour:
   playerNumber: 1
   leftFlipper: {fileID: 505641925666580535}
   rightFlipper: {fileID: 505641926373575617}
---- !u!50 &505641925944966183
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 505641925944966178}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 2
+  leftBound: 0
+  rightBound: 0
 --- !u!1 &505641926373575617
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,8 +293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78dd6bd57c5da438eb38ca09ed3f6bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRightFlipper: 0
   flipAngle: 35
+  isFlipped: 0
 --- !u!50 &1491275172998283108
 Rigidbody2D:
   serializedVersion: 4

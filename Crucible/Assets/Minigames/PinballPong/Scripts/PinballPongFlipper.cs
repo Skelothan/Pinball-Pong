@@ -17,20 +17,21 @@ public class PinballPongFlipper : MonoBehaviour
 
     private bool isFlipping;
     private bool isUnflipping;
-    private bool isFlipped;
+    public bool isFlipped;
 
     public Coroutine mostRecentFlip;
 
     void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        // Don't collide with other flippers or paddle
+        Physics.IgnoreLayerCollision(8, 8, true);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        // Don't collide with other flipper
-        Physics.IgnoreLayerCollision(8, 8, true);
+        
     }
 
     // Update is called once per frame
@@ -58,13 +59,13 @@ public class PinballPongFlipper : MonoBehaviour
             yield break;
 
         isFlipping = true;
+        isFlipped = true;
         for (int i = 0; i < flipSteps; i++)
         {
             rb.MoveRotation(rb.rotation + flipAngle / flipSteps);
             rb.MovePosition(rb.position + offset / flipSteps);
             yield return new WaitForSeconds(flipTime / flipSteps);
         }
-        isFlipped = true;
         isFlipping = false;
     }
 
@@ -77,13 +78,13 @@ public class PinballPongFlipper : MonoBehaviour
             yield break;
 
         isUnflipping = true;
+        isFlipped = false;
         for (int i = 0; i < flipSteps; i++)
         {
             rb.MoveRotation(rb.rotation - flipAngle / flipSteps);
             rb.MovePosition(rb.position - offset / flipSteps);
             yield return new WaitForSeconds(flipTime / flipSteps);
         }
-        isFlipped = false;
         isUnflipping = false;
     }
 }
