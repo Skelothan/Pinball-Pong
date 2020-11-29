@@ -20,7 +20,6 @@ public class PinballPongBall : MonoBehaviour
     {
         if (other.gameObject.tag == "DeathBarrier")
         {
-            Debug.Log("A ball was dropped!");
             other.gameObject.GetComponent<PinballPongDeathBarrier>().BallDrop();
             PinballPongSoundManager.S.PlayDeathSound();
             Destroy(gameObject);
