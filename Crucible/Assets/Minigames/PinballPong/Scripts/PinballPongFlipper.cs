@@ -9,9 +9,10 @@ public class PinballPongFlipper : MonoBehaviour
     private static int flipSteps = 10;
 
     public float flipAngle = 45f;
-    public static Vector2 offset = new Vector2 (0f, 0.25f);
+    public static Vector3 offset = new Vector3 (0f, 0.25f, 0);
 
     private Rigidbody2D rb;
+    private Transform t;
 
     private static Vector3 zAxis = new Vector3(0f, 0f, 1f);
 
@@ -24,6 +25,7 @@ public class PinballPongFlipper : MonoBehaviour
     void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        t = gameObject.GetComponent<Transform>();
         // Don't collide with other flippers or paddle
         Physics.IgnoreLayerCollision(8, 8, true);
     }
@@ -63,7 +65,7 @@ public class PinballPongFlipper : MonoBehaviour
         for (int i = 0; i < flipSteps; i++)
         {
             rb.MoveRotation(rb.rotation + flipAngle / flipSteps);
-            rb.MovePosition(rb.position + offset / flipSteps);
+            t.position += offset / flipSteps;
             yield return new WaitForSeconds(flipTime / flipSteps);
         }
         isFlipping = false;
@@ -82,7 +84,7 @@ public class PinballPongFlipper : MonoBehaviour
         for (int i = 0; i < flipSteps; i++)
         {
             rb.MoveRotation(rb.rotation - flipAngle / flipSteps);
-            rb.MovePosition(rb.position - offset / flipSteps);
+            t.position -= offset / flipSteps;
             yield return new WaitForSeconds(flipTime / flipSteps);
         }
         isUnflipping = false;
