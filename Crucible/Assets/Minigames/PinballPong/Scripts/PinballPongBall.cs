@@ -25,4 +25,13 @@ public class PinballPongBall : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.layer == 9) // Walls
+            PinballPongSoundManager.S.PlayWallBounceSound();
+
+        if (other.gameObject.layer == 8) // Paddles
+            PinballPongSoundManager.S.PlayPaddleBounceSound();
+    }
 }
