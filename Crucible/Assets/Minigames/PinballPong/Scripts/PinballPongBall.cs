@@ -22,6 +22,7 @@ public class PinballPongBall : MonoBehaviour
         {
             Debug.Log("A ball was dropped!");
             other.gameObject.GetComponent<PinballPongDeathBarrier>().BallDrop();
+            PinballPongSoundManager.S.PlayDeathSound();
             Destroy(gameObject);
         }
     }

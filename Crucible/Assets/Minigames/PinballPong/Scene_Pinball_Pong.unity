@@ -533,7 +533,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -632,6 +632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wallBounceSound: {fileID: 8300000, guid: 49b1c31a3ae15481badb48b4d5887ae7, type: 3}
   paddleBounceSound: {fileID: 8300000, guid: 1f3068bdfea75492786ad3a7411a9bf5, type: 3}
+  deathSound: {fileID: 8300000, guid: d95c235fffce24e90bc33658b255bafa, type: 3}
 --- !u!4 &467618390
 Transform:
   m_ObjectHideFlags: 0

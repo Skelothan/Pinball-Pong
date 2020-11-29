@@ -12,6 +12,8 @@ public class PinballPongSoundManager : MonoBehaviour
     public AudioClip wallBounceSound;
     public AudioClip paddleBounceSound;
 
+    public AudioClip deathSound;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -32,5 +34,10 @@ public class PinballPongSoundManager : MonoBehaviour
     public void PlayPaddleBounceSound()
     {
         a.PlayOneShot(paddleBounceSound);
+    }
+
+    public void PlayDeathSound()
+    {
+        a.PlayOneShot(deathSound);
     }
 }
