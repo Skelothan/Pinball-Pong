@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PinballPongBall : MonoBehaviour
 {
+
+    public GameObject deathFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +25,9 @@ public class PinballPongBall : MonoBehaviour
         {
             other.gameObject.GetComponent<PinballPongDeathBarrier>().BallDrop();
             PinballPongSoundManager.S.PlayDeathSound();
+            GameObject fx = Instantiate(deathFX);
+            fx.transform.position = gameObject.transform.position + new Vector3(0, 3f, 0);
+
             Destroy(gameObject);
         }
     }
