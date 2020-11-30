@@ -17,6 +17,8 @@ public class PinballPongPaddle : MonoBehaviour
     public float leftBound;
     public float rightBound;
 
+    private Vector3 originalPosition;
+
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -28,7 +30,7 @@ public class PinballPongPaddle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        originalPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -73,8 +75,8 @@ public class PinballPongPaddle : MonoBehaviour
     }
 
     // FixedUpdate is called once per physics update
-    void FixedUpdate()
+    public void ResetPosition()
     {
-        
+        transform.position = originalPosition;
     }
 }

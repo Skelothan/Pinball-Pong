@@ -7,6 +7,8 @@ public class PinballPongDeathBarrier : MonoBehaviour
     public int playerNumber;
     public GameObject ballPrefab;
 
+    public GameObject[] paddles;
+
     public MinigameController minigameController;
 
     // Start is called before the first frame update
@@ -36,5 +38,10 @@ public class PinballPongDeathBarrier : MonoBehaviour
         GameObject newBall = Instantiate(ballPrefab);
         newBall.transform.position = new Vector2(3.5f * (playerNumber * 2 - 3) * -1, 1f);
         minigameController.TimerPaused = false;
+
+        foreach (GameObject p in paddles)
+        {
+            p.GetComponent<PinballPongPaddle>().ResetPosition();
+        }
     }
 }

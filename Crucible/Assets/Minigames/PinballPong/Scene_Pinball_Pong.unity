@@ -124,6 +124,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &87390458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 505641925944966178, guid: b0493b46712a84b7b91f6227fada206c,
+    type: 3}
+  m_PrefabInstance: {fileID: 505641926296605795}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &185310956
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,6 +475,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &410192115 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 505641925944966178, guid: b0493b46712a84b7b91f6227fada206c,
+    type: 3}
+  m_PrefabInstance: {fileID: 701084310}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &448711322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,6 +1452,9 @@ MonoBehaviour:
   playerNumber: 2
   ballPrefab: {fileID: 3314271396297711665, guid: f3760464f857d4a179fab3fd6752a92f,
     type: 3}
+  paddles:
+  - {fileID: 87390458}
+  - {fileID: 410192115}
   minigameController: {fileID: 635126287}
 --- !u!61 &1305278009
 BoxCollider2D:
@@ -1662,6 +1677,9 @@ MonoBehaviour:
   playerNumber: 1
   ballPrefab: {fileID: 3314271396297711665, guid: f3760464f857d4a179fab3fd6752a92f,
     type: 3}
+  paddles:
+  - {fileID: 87390458}
+  - {fileID: 410192115}
   minigameController: {fileID: 635126287}
 --- !u!61 &1617804848
 BoxCollider2D:
